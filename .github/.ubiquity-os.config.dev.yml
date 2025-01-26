@@ -1,6 +1,5 @@
 plugins:
-  - skipBotEvents: false
-  - uses:
+  uses:
     - plugin: ShivTestOrg/command-ask:compute.yml@development
       with: 
         model: "openai/o1-mini"
