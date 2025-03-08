@@ -182,7 +182,7 @@ plugins:
       - plugin: ubiquity-os-marketplace/daemon-disqualifier@main
         skipBotEvents: false
         with:
-          warning: 7 days
+          warning: 15 days
           pullRequestRequired: true
           eventWhitelist:
             - pull_request.review_requested
