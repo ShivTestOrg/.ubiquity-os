@@ -112,8 +112,9 @@ plugins:
   - uses:
       - plugin: ubiquity-os-marketplace/command-ask@main
         with:
-          model: anthropic/claude-3.5-sonnet
+          model: anthropic/claude-3.7-sonnet
           openAiBaseUrl: https://openrouter.ai/api/v1
+          maxDepth: 10
 
   - uses:
       - plugin: https://ubiquity-os-command-query-user-main.ubiquity.workers.dev
@@ -137,83 +138,4 @@ plugins:
         with:
           logLevel: debug
           evmNetworkId: 100
-          evmPrivateEncrypted: bd5AFnSCO6c5jJyPifpOfr5Zys29RE7SyXkEU3akT13RtGmYDrqGIGuvJQyH53HA5dIba7PL5bXfll0JebmwXYe5gHIXSGX80WuGMDHh0cFfeGjHhmUXe8kkZ1OT2De9qRpqejJcEzdfi-8XNAvP7cQu2Vt-7RNnPw
-          incentives:
-            contentEvaluator:
-              enabled: true
-            userExtractor:
-              enabled: true
-              redeemTask: true
-            dataPurge:
-              enabled: true
-            formattingEvaluator:
-              multipliers:
-                - role:
-                    - ISSUE_SPECIFICATION
-                    - ISSUE_AUTHOR
-                    - ISSUE_COLLABORATOR
-                    - PULL_COLLABORATOR
-                    - PULL_SPECIFICATION
-                  multiplier: 1
-                  rewards:
-                    wordValue: 0.1
-                    html: *tcrHtmlConfig
-                - role:
-                    - ISSUE_CONTRIBUTOR
-                    - ISSUE_ASSIGNEE
-                  multiplier: 0.25
-                  rewards:
-                    wordValue: 0.1
-                    html: *tcrHtmlConfig
-                - role:
-                    - PULL_AUTHOR
-                    - PULL_CONTRIBUTOR
-                    - PULL_ASSIGNEE
-                  multiplier: 0
-                  rewards:
-                    wordValue: 0
-                    html: *tcrHtmlConfig
-            permitGeneration: {}
-            reviewIncentivizer: {}
-            githubComment:
-              post: true
-              debug: false
-
-  - skipBotEvents: false
-    uses:
-      - plugin: ubiquity-os-marketplace/daemon-disqualifier@main
-        skipBotEvents: false
-        with:
-          warning: 7 days
-          pullRequestRequired: true
-          eventWhitelist:
-            - pull_request.review_requested
-            - pull_request.ready_for_review
-            - pull_request_review_comment.created
-            - issue_comment.created
-            - push
-          disqualification: 14 days
-
-  - uses:
-      - plugin: ubiquity-os-marketplace/daemon-merging@main
-        with:
-          approvalsRequired:
-            collaborator: 1
-            contributor: 2
-          mergeTimeout:
-            collaborator: 3.5 days
-            contributor: 7 days
-          allowedReviewerRoles:
-            - COLLABORATOR
-            - MEMBER
-            - OWNER
-
-  - uses:
-      - plugin: ubiquity-os-marketplace/text-vector-embeddings@main
-        with:
-          matchThreshold: 0.95
-          warningThreshold: 0.75
-          jobMatchingThreshold: 0.75
-
-  - uses:
-      - plugin: ubiquity-os-marketplace/daemon-pull-review@main
+          evmPrivateEncrypted: bd5AFnSCO6c5jJyPifpOfr5Zys29RE7SyXkEU3akT13RtGmYDrqGIGuvJQyH53HA5dIba7PL5bXfll0JebmwXYe5gHIXSGX80WuGMDHh0cFfe
