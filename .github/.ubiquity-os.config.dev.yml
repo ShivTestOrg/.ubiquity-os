@@ -112,8 +112,9 @@ plugins:
   - uses:
       - plugin: ubiquity-os-marketplace/command-ask@main
         with:
-          model: anthropic/claude-3.5-sonnet
+          model: anthropic/claude-3.7-sonnet
           openAiBaseUrl: https://openrouter.ai/api/v1
+          maxDepth: 10
 
   - uses:
       - plugin: https://ubiquity-os-command-query-user-main.ubiquity.workers.dev
