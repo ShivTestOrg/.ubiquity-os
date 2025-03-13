@@ -77,6 +77,8 @@ priorityLabels: &priorityLabels
 
 plugins:
   - uses:
+      - plugin: http://100.72.255.83:4000
+  - uses:
       - plugin: https://ubiquity-os-command-start-stop-main.ubiquity.workers.dev
         skipBotEvents: false
         with:
