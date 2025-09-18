@@ -1,0 +1,64 @@
+agents:
+  - id: structured-thinking
+    name: "Structured Thinking Agent"
+    description: "Agent for analyzing and generating structured thoughts"
+    agent: ShivTestOrg/structured-thinking:agent.yml
+    capabilities:
+      - name: analyze
+        description: "Analyze text and break down into structured components"
+        inputs:
+          type: object
+          properties:
+            text:
+              type: string
+              description: "Text to analyze"
+            format:
+              type: string
+              description: "Output format (json/markdown)"
+              enum: ["json", "markdown"]
+            depth:
+              type: number
+              description: "Analysis depth level"
+              default: 3
+          required: ["text"]
+        outputs:
+          type: object
+          properties:
+            analysis:
+              type: object
+              description: "Structured analysis result"
+            summary:
+              type: string
+              description: "Summary of analysis"
+
+      - name: synthesize
+        description: "Synthesize structured thoughts into coherent output"
+        inputs:
+          type: object
+          properties:
+            structure:
+              type: object
+              description: "Structured data to synthesize"
+            format:
+              type: string
+              description: "Output format (text/markdown)"
+              enum: ["text", "markdown"]
+            style:
+              type: string
+              description: "Writing style"
+              default: "professional"
+          required: ["structure"]
+        outputs:
+          type: object
+          properties:
+            content:
+              type: string
+              description: "Synthesized content"
+            metadata:
+              type: object
+              description: "Additional metadata about the synthesis"
+
+    settings:
+      model: "gpt-4"
+      temperature: 0.7
+      max_tokens: 2048
