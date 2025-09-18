@@ -2,7 +2,7 @@ agents:
   - id: structured-thinking
     name: "Structured Thinking Agent"
     description: "Agent for analyzing and generating structured thoughts"
-    agent: ShivTestOrg/structured-thinking:agent.yml
+    agent: ShivTestOrg/agent-structured-thinking:agent.yml
     capabilities:
       - name: analyze
         description: "Analyze text and break down into structured components"
