@@ -2,7 +2,7 @@ agents:
   - id: structured-thinking
     name: "Structured Thinking Agent"
     description: "Agent for analyzing and generating structured thoughts"
-    agent: http://localhost:4000/
+    agent: http://localhost:4000
     capabilities:
       - name: analyze
         description: "Analyze text and break down into structured components"
