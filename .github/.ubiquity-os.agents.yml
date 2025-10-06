@@ -1,6 +1,6 @@
 agents:
   - id: structured-thinking
-    agent: https://agent-structured-thinking.deno.dev
+    agent: http://localhost:4000
     settings:
       model: "gpt-4o"
       temperature: 0.7
