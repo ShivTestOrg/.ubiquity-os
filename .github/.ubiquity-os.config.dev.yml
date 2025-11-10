@@ -1,0 +1,18 @@
+plugins:
+  - uses:
+      - plugin: http://localhost:4000
+        skipBotEvents: false
+        with:
+          maxSimilarIssues: 2
+          elevatedPriorityLabel: "Boosted"
+          priorityMultiplier: 2
+          crossLinkedIssueBoost: true
+          priorityMultiplierDebug: true
+          basePriceMultiplier: 1.0
+      agents:
+    - id: structured-thinking
+      plugin: http://agent-structured-thinking.deno.dev
+      with:
+        model: "gpt-4o"
+        temperature: 0.7
+        max_tokens: 2048
